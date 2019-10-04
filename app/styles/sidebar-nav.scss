@@ -1,0 +1,94 @@
+$sidebarNavBackgroundColor: #df6917;
+$sidebarNavFontColor: #eee;
+$sidebarNavWidth: 150px;
+
+.sidebar-nav {
+  font-size: .8em;
+
+  .sidebar-nav-wrapper {
+    display: flex;
+    align-items: stretch;
+    
+  }
+
+  // Extra-small devices only get an icon 
+  @media (max-width: 575.98px) {
+    .sidebar-nav-sidebar {
+      min-width: 28px;
+      max-width: 28px;
+      padding: 2px;
+      i.fa, svg {
+        width: 24px;
+      }
+      .label {
+        display: none;
+      }
+      a {
+        font-size: 12px;
+      }
+      hr {
+        border-color: $sidebarNavFontColor;
+      }
+    }
+    .sidebar-nav-subheading p {
+      font-size: 1.1em;
+    }
+  }
+
+  // Small devices and larger get text 
+  @media (min-width: 576px) {
+    .sidebar-nav-sidebar {
+      min-width: $sidebarNavWidth;
+      max-width: $sidebarNavWidth;
+      i.fa, svg {
+        width: 32px;
+        margin-right: 3px;
+      }
+      a {
+        font-size: 14px;
+      }
+      li {
+        margin-left: 14px;
+      }
+      hr {
+        border-color: $sidebarNavFontColor;
+      }
+        }
+    .sidebar-nav-subheading {
+      padding: 7px;
+      p {
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .sidebar-nav-sidebar {
+    min-height: 100vh;
+    background-color: $sidebarNavBackgroundColor;
+    color: $sidebarNavFontColor;
+
+    .sidebar-nav-subheading p {
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+  
+    a, a:hover, a:focus {
+      text-decoration: none;
+      color: $sidebarNavFontColor;
+    }
+  
+    a:hover {
+      background-color: darken($sidebarNavBackgroundColor, 10%);
+      text-decoration: underline;
+    }
+    
+    svg {
+      fill: $sidebarNavFontColor;
+    }
+  }
+
+  .sidebar-nav-content {
+    width: 100%;
+  }
+    
+}

@@ -1,0 +1,32 @@
+<MainSidebar>
+  {{#unless model.length}}
+    <div class="alert alert-primary" role="alert">
+      You have no registered agents. {{#link-to "agents.new"}}Register one now{{/link-to}}.
+    </div>
+  {{/unless}}
+  
+  {{#if model.length}}
+    {{#link-to "agents.new"}}
+      <button class="btn btn-secondary btn-sm float-right">Register new agent</button>
+    {{/link-to}}
+    <h2>Agents</h2>
+    <table class="table">
+      <thead>
+        <th>ID</th>
+        <th>Created</th>
+      </thead>
+      <tbody>
+        {{#each model as |agent|}}
+          <tr>
+            <td>
+              {{#link-to "agent" agent}}{{agent.id}}{{/link-to}}
+            </td>
+            <td>{{moment agent.createdAt}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{outlet}}
+</MainSidebar>

@@ -1,0 +1,25 @@
+{
+  "clean_urls": true,
+  "headers": {
+    "/": {
+      "Cache-Control": "no-store, no-cache"
+    },
+    "/assets/**": {
+      "Cache-Control": "public, max-age=512000"
+    },
+    "/assets/webfonts/*": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  },
+  "https_only": false,
+  "proxies": {
+    "/v1/": {
+      "origin": "${API_URL}/v1/"
+    }
+  },
+  "root": "dist/",
+  "routes": {
+    "/assets/*": "/assets/",
+    "/**": "index.html"
+  }
+}

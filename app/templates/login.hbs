@@ -1,0 +1,41 @@
+<div class="container login">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="page-header">
+        <h3>Login</h3>
+      </div>
+    </div>
+      
+    <form {{action "authenticate" on="submit"}}>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          {{input id="username" placeholder="Enter Login" value=identification autocomplete="on" autocorrect="off" autocapitalize="off" spellcheck="false"}}
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"></span>
+          </span>
+          {{input id="password" placeholder="Enter Password" type="password" value=password}}
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+        {{!-- {{#link-to 'register'}}<button type="submit" class="btn btn-secondary">Register</button>{{/link-to}} --}}
+      </div>
+  
+    </form>
+  </div>
+</div>
+
+{{outlet}}

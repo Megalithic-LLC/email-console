@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      {{#link-to "agent"}}Agent{{/link-to}}
+    </li>
+    <li class="breadcrumb-item">
+      Service Instances
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{model.service.displayName}}
+    </li>
+  </ol>
+</nav>
+
+{{outlet}}

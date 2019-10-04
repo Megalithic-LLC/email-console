@@ -1,0 +1,11 @@
+@import "agent";
+@import "agent-email";
+@import "agent-service";
+@import "agent-snapshot";
+@import "sidebar-nav";
+
+@import "ember-bootstrap/bootstrap";
+
+body {
+  color: #555;
+}

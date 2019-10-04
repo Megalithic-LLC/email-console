@@ -1,0 +1,30 @@
+{{!-- take advantage of CSS flex property --}}
+<div class="sidebar-nav-wrapper">
+
+  {{!-- sidebar --}}
+  <div class="sidebar-nav-sidebar">
+  
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">Cloud</p>
+      <li>
+      </li>
+    </ul>
+    
+    <hr>
+    
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">Manage</p>
+      <li>
+        <div class="label">Backups</div>
+        <div class="label">Snapshots</div>
+        <div class="label">Networking</div>
+        <div class="label">API</div>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="sidebar-nav-content">
+    {{yield}}
+  </div>
+  
+</div>

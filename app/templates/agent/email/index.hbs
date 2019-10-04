@@ -1,0 +1,47 @@
+<div class="float-right">
+  {{#if selectedAccounts.length}}
+    <BsDropdown as |dd|>
+      <dd.button>
+        Actions {{selectedAccounts.length}}
+        <span class="caret"/>
+      </dd.button>
+      <dd.menu as |menu|>
+        <menu.item>
+          <a href="#" {{action "bulkDelete" selectedAccounts}}>
+            <FaIcon @icon="trash"/> Delete
+          </a>
+        </menu.item>
+      </dd.menu>
+    </BsDropdown>
+  {{/if}}
+
+  {{#link-to "agent.email.register"}}
+    <button type="button" class="btn btn-primary">
+      Register new account
+    </button>
+  {{/link-to}}
+</div>
+
+
+<h2>Accounts</h2>
+
+<table class="table table-compact table-bordered">
+  <thead>
+    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    {{#each model as |account|}}
+      <tr>
+        <td><Input @type="checkbox" @checked={{account._selected}}/></td>
+        <td>{{account.id}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}
