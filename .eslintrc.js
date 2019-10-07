@@ -47,5 +47,8 @@ module.exports = {
         'node/no-unpublished-require': 'off'
       })
     }
-  ]
+  ],
+  globals: {
+    ga: true
+  }
 };
