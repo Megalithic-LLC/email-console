@@ -5,7 +5,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     const serviceInstance = this.modelFor('agent.email');
     const agent = this.modelFor('agent');
-    return this.store.createRecord('email-account', {
+    return this.store.createRecord('account', {
       agent: agent,
       serviceInstance: serviceInstance
     });
