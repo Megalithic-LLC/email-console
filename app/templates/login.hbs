@@ -1,25 +1,21 @@
-<div class="container login">
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="page-header">
-        <h3>Login</h3>
-      </div>
-    </div>
-      
-    <form {{action "authenticate" on="submit"}}>
-
-      <div class="form-group">
+<BsModal @size="sm" @fade={{false}} @backdropClose={{false}} @onHide={{false}} @onSubmit={{action "authenticate"}} as |Modal|>
+  <Modal.header>
+    <h4 class="modal-title">Login</h4>
+  </Modal.header>
+  <Modal.body>
+    <BsForm @onSubmit={{action "authenticate"}} as |form|>
+    
+      <form.group>
         <label for="username">Username</label>
         <div class="input-group">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-user"></span>
           </span>
-          {{input id="username" placeholder="Enter Login" value=identification autocomplete="on" autocorrect="off" autocapitalize="off" spellcheck="false"}}
+          {{input id="username" placeholder="Enter Username" value=username autocomplete="on" autocorrect="off" autocapitalize="off" spellcheck="false"}}
         </div>
-      </div>
-  
-      <div class="form-group">
+      </form.group>
+      
+      <form.group>
         <label for="password">Password</label>
         <div class="input-group">
           <span class="input-group-addon">
@@ -27,15 +23,17 @@
           </span>
           {{input id="password" placeholder="Enter Password" type="password" value=password}}
         </div>
-      </div>
-  
-      <div class="form-group">
+      </form.group>
+      
+      <form.group>
         <button type="submit" class="btn btn-primary">Login</button>
-        {{!-- {{#link-to 'register'}}<button type="submit" class="btn btn-secondary">Register</button>{{/link-to}} --}}
-      </div>
+      </form.group>
+      
+    </BsForm>
+  </Modal.body>
   
-    </form>
-  </div>
-</div>
-
-{{outlet}}
+  <Modal.footer>
+    {{!-- <p>Don't have an account yet? Click {{#link-to "register"}}here{{/link-to}} to register one.</p> --}}
+  </Modal.footer>
+  
+</BsModal>
