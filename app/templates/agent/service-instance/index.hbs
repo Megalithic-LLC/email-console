@@ -33,7 +33,7 @@
     <th>Created</th>
   </thead>
   <tbody>
-    {{#each model as |account|}}
+    {{#each model.accounts as |account|}}
       <tr>
         <td><Input @type="checkbox" @checked={{account._selected}}/></td>
         <td>{{account.id}}</td>
