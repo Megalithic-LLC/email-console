@@ -1,4 +1,16 @@
 <AgentSidebar @agent={{model}}>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Agent</li>
+      <li class="breadcrumb-item">
+        {{#link-to "agent"}}{{model.agent.id}}{{/link-to}}
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Snapshots
+      </li>
+    </ol>
+  </nav>
+  
   <div class="panel">
     <legend>Take a snapshot</legend>
     <p>

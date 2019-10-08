@@ -1,0 +1,34 @@
+<AgentSidebar @agent={{model}}>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Agent</li>
+      <li class="breadcrumb-item">
+        {{#link-to "agent"}}{{model.id}}{{/link-to}}
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Service Instances
+      </li>
+    </ol>
+  </nav>
+  
+  
+  <div class="container">
+    <h2>Service Instances ({{model.serviceInstances.length}})</h2>
+    <table class="table table-compact table-bordered">
+      <tbody>
+        {{#each model.serviceInstances as |serviceInstance|}}
+          <tr>
+            <td>
+              {{#link-to "agent.service-instance" serviceInstance}}
+                {{serviceInstance.service.displayName}} ({{serviceInstance.plan.displayName}})
+              {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{outlet}}
+  </div>
+  
+</AgentSidebar>

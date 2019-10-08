@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('service', {path:'/service/:service_id'}, function() {
       this.route('plan', {path:'/plan/:plan_id'});
     });
+    this.route('service-instances');
     this.route('services');
     this.route('snapshot');
   });
