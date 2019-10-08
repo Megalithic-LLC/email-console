@@ -1,22 +1,24 @@
-<div class="container">
-  <h2>Services</h2>
+<AgentSidebar @agent={{model}}>
+  <div class="container">
+    <h2>Services</h2>
+    
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        {{#each model as |service|}}
+          <tr>
+            <td>
+              {{#link-to "agent.service" service}}{{service.displayName}}{{/link-to}}
+            </td>
+            <td>{{service.description}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
   
-  <table class="table">
-    <thead>
-      <th>Name</th>
-      <th>Description</th>
-    </thead>
-    <tbody>
-      {{#each model as |service|}}
-        <tr>
-          <td>
-            {{#link-to "agent.service" service}}{{service.displayName}}{{/link-to}}
-          </td>
-          <td>{{service.description}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
-
-{{outlet}}
+  {{outlet}}
+</AgentSidebar>

@@ -1,67 +1,69 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      Agent
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">
-      {{model.id}}
-    </li>
-  </ol>
-</nav>
-
-<div class="container">
-
-  {{#if model.backups.length}}
-    <div class="section">
-      <h2>Backups ({{model.backups.length}})</h2>
-      <table class="table table-compact table-bordered">
-        <tbody>
-          {{#each model.backups as |backup|}}
-            <tr>
-              <td>{{backup.id}}</td>
-              <td>{{backup.createdAt}}</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  {{/if}}
+<AgentSidebar @agent={{model}}>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        Agent
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{model.id}}
+      </li>
+    </ol>
+  </nav>
   
+  <div class="container">
   
-  {{#if model.snapshots.length}}
-    <div class="section">
-      <h2>Snapshots ({{model.snapshots.length}})</h2>
-      <table class="table table-compact table-bordered">
-        <tbody>
-          {{#each model.snapshots as |snapshot|}}
-            <tr>
-              <td>{{snapshot.id}}</td>
-              <td>{{snapshot.createdAt}}</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  {{/if}}
-  
-  
-  {{#if model.serviceInstances.length}}
-    <div class="section">
-      <h2>Services ({{model.serviceInstances.length}})</h2>
-      <table class="table table-compact table-bordered">
-        <tbody>
-          {{#each model.serviceInstances as |serviceInstance|}}
-            <tr>
-              <td>
-                {{#link-to "agent.service-instance" serviceInstance}}
-                  {{serviceInstance.service.displayName}} ({{serviceInstance.plan.displayName}})
-                {{/link-to}}
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  {{/if}}
-  
-</div>
+    {{#if model.backups.length}}
+      <div class="section">
+        <h2>Backups ({{model.backups.length}})</h2>
+        <table class="table table-compact table-bordered">
+          <tbody>
+            {{#each model.backups as |backup|}}
+              <tr>
+                <td>{{backup.id}}</td>
+                <td>{{backup.createdAt}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+    
+    
+    {{#if model.snapshots.length}}
+      <div class="section">
+        <h2>Snapshots ({{model.snapshots.length}})</h2>
+        <table class="table table-compact table-bordered">
+          <tbody>
+            {{#each model.snapshots as |snapshot|}}
+              <tr>
+                <td>{{snapshot.id}}</td>
+                <td>{{snapshot.createdAt}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+    
+    
+    {{#if model.serviceInstances.length}}
+      <div class="section">
+        <h2>Services ({{model.serviceInstances.length}})</h2>
+        <table class="table table-compact table-bordered">
+          <tbody>
+            {{#each model.serviceInstances as |serviceInstance|}}
+              <tr>
+                <td>
+                  {{#link-to "agent.service-instance" serviceInstance}}
+                    {{serviceInstance.service.displayName}} ({{serviceInstance.plan.displayName}})
+                  {{/link-to}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+    
+  </div>
+</AgentSidebar>

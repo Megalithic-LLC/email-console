@@ -85,6 +85,10 @@ $sidebarNavWidth: 150px;
     svg {
       fill: $sidebarNavFontColor;
     }
+  
+    span.badge {
+      background-color: lighten($sidebarNavBackgroundColor, 15%);
+    }
   }
 
   .sidebar-nav-content {
