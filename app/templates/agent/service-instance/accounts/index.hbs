@@ -2,7 +2,8 @@
   {{#if selectedAccounts.length}}
     <BsDropdown as |dd|>
       <dd.button>
-        Actions {{selectedAccounts.length}}
+        Actions
+        <span class="badge badge-light">{{selectedAccounts.length}}</span>
         <span class="caret"/>
       </dd.button>
       <dd.menu as |menu|>

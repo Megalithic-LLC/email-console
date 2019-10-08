@@ -2,7 +2,8 @@
   {{#if selectedDomains.length}}
     <BsDropdown as |dd|>
       <dd.button>
-        Domains {{selectedDomains.length}}
+        Actions
+        <span class="badge badge-light">{{selectedDomains.length}}</span>
         <span class="caret"/>
       </dd.button>
       <dd.menu as |menu|>

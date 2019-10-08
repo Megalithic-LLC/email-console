@@ -5,10 +5,14 @@ $sidebarNavWidth: 150px;
 .sidebar-nav {
   font-size: .8em;
 
+  ul, hr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+    
   .sidebar-nav-wrapper {
     display: flex;
     align-items: stretch;
-    
   }
 
   // Extra-small devices only get an icon 
@@ -17,14 +21,12 @@ $sidebarNavWidth: 150px;
       min-width: 28px;
       max-width: 28px;
       padding: 2px;
+      font-size: 12px;
       i.fa, svg {
         width: 24px;
       }
       .label {
         display: none;
-      }
-      a {
-        font-size: 12px;
       }
       hr {
         border-color: $sidebarNavFontColor;
@@ -40,12 +42,10 @@ $sidebarNavWidth: 150px;
     .sidebar-nav-sidebar {
       min-width: $sidebarNavWidth;
       max-width: $sidebarNavWidth;
+      font-size: 12px;
       i.fa, svg {
         width: 32px;
         margin-right: 3px;
-      }
-      a {
-        font-size: 14px;
       }
       li {
         margin-left: 14px;
@@ -53,7 +53,7 @@ $sidebarNavWidth: 150px;
       hr {
         border-color: $sidebarNavFontColor;
       }
-        }
+    }
     .sidebar-nav-subheading {
       padding: 7px;
       p {

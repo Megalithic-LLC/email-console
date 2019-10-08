@@ -4,6 +4,54 @@
   {{!-- sidebar --}}
   <div class="sidebar-nav-sidebar">
   
+    
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">Cloud</p>
+      <li>
+        <div class="label">Backups</div>
+        <div class="label">Snapshots</div>
+      </li>
+    </ul>
+    
+    
+    <hr>
+    
+    
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">
+        {{#link-to "agent"}}
+          Agent
+        {{/link-to}}
+      </p>
+      <li>
+        <div class="label">
+          {{#link-to "agent.service-instances"}}
+            Service Instances
+            <span class="badge badge-secondary">{{serviceInstance.agent.serviceInstances.length}}</span>
+          {{/link-to}}
+        </div>
+        <div class="label">
+          {{#link-to "agent.snapshot"}}
+            Snapshots
+            <span class="badge badge-secondary">{{serviceInstance.agent.snapshots.length}}</span>
+          {{/link-to}}
+        </div>
+      </li>
+    </ul>
+    
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">Discover</p>
+      <li>
+        <span class="label">
+          {{#link-to "agent.services"}}Marketplace{{/link-to}}
+        </span>
+      </li>
+    </ul>
+    
+    
+    <hr>
+    
+    
     <ul class="list-unstyled sidebar-nav-subheading">
       <p class="d-none d-sm-block">
         {{#link-to "agent.service-instance"}}
@@ -27,46 +75,6 @@
       </li>
     </ul>
     
-    
-    <hr>
-    
-    
-    <ul class="list-unstyled sidebar-nav-subheading">
-      <p class="d-none d-sm-block">
-        {{#link-to "agent"}}
-          Agent
-        {{/link-to}}
-      </p>
-      <li>
-        <div class="label">
-          {{#link-to "agent.service-instances"}}Service Instances{{/link-to}}
-        </div>
-        <div class="label">
-          {{#link-to "agent.snapshot"}}Snapshots{{/link-to}}
-        </div>
-      </li>
-    </ul>
-    
-    <ul class="list-unstyled sidebar-nav-subheading">
-      <p class="d-none d-sm-block">Discover</p>
-      <li>
-        <span class="label">
-          {{#link-to "agent.services"}}Marketplace{{/link-to}}
-        </span>
-      </li>
-    </ul>
-    
-    
-    <hr>
-    
-    
-    <ul class="list-unstyled sidebar-nav-subheading">
-      <p class="d-none d-sm-block">Cloud</p>
-      <li>
-        <div class="label">Backups</div>
-        <div class="label">Snapshots</div>
-      </li>
-    </ul>
     
   </div>
   
