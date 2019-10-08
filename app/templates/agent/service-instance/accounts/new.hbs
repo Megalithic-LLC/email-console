@@ -1,6 +1,6 @@
 <h2>Register a new email account</h2>
 
-<form {{action "register" on="submit"}} class="container">
+<form {{action "save" on="submit"}} class="container">
 
   <div class="form-group">
     <label for="name">Account name</label>
@@ -14,11 +14,11 @@
 
   
   <div class="form-group">
-    <button type="submit" class="btn btn-primary" {{action "register" model}} disabled={{model.isSaving}}>
+    <button type="submit" class="btn btn-primary" {{action "save" model}} disabled={{model.isSaving}}>
       {{#if model.isSaving}}<FaIcon @icon="spinner" @spin={{true}}/>{{/if}}
       Register
     </button>
-    {{#link-to "agent.email"}}<button type="submit" class="btn btn-secondary">Cancel</button>{{/link-to}}
+    {{#link-to "agent.service-instance"}}<button type="submit" class="btn btn-secondary">Cancel</button>{{/link-to}}
   </div>
 
 </form>
