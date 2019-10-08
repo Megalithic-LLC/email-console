@@ -5,7 +5,6 @@ export default Controller.extend({
   notify: service(),
   actions: {
     provision(plan) {
-      let agent = this.agent;
       let serviceInstance = this.store.createRecord('service-instance', {
         agent: this.agent,
         service: plan.get('service'),

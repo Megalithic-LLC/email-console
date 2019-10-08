@@ -16,10 +16,17 @@
   {{/if}}
 
   {{#link-to "agent.service-instance.accounts.new"}}
-    <button type="button" class="btn btn-primary">
-      Register new account
+    <button type="button" class="btn btn-secondary">
+      New account
     </button>
   {{/link-to}}
+  
+  {{#link-to "agent.service-instance.domains.new"}}
+    <button type="button" class="btn btn-secondary">
+      New domain
+    </button>
+  {{/link-to}}
+  
 </div>
 
 
@@ -39,6 +46,26 @@
         <td>{{account.email}}</td>
         <td>{{account.displayName}}</td>
         <td>{{account.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+<h2>Domains</h2>
+
+<table class="table table-compact table-bordered">
+  <thead>
+    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
+    <th>Name</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    {{#each model.domains as |domain|}}
+      <tr>
+        <td><Input @type="checkbox" @checked={{domain._selected}}/></td>
+        <td>{{domain.name}}</td>
+        <td>{{domain.createdAt}}</td>
       </tr>
     {{/each}}
   </tbody>

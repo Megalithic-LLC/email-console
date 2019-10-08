@@ -9,10 +9,13 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('agent', {path:'/agent/:agent_id'}, function() {
     this.route('service-instance', {path:'/service-instance/:service_instance_id'}, function() {
-        this.route('accounts', function() {
-          this.route('new');
-        });
-      }
+      this.route('accounts', function() {
+        this.route('new');
+      });
+      this.route('domains', function() {
+        this.route('new');
+      });
+    }
     );
     this.route('service', {path:'/service/:service_id'}, function() {
       this.route('plan', {path:'/plan/:plan_id'});
