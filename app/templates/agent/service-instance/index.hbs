@@ -1,74 +1,25 @@
-<div class="float-right">
-  {{#if selectedAccounts.length}}
-    <BsDropdown as |dd|>
-      <dd.button>
-        Actions {{selectedAccounts.length}}
-        <span class="caret"/>
-      </dd.button>
-      <dd.menu as |menu|>
-        <menu.item>
-          <a href="#" {{action "bulkDelete" selectedAccounts}}>
-            <FaIcon @icon="trash"/> Delete
-          </a>
-        </menu.item>
-      </dd.menu>
-    </BsDropdown>
-  {{/if}}
+<div class="row justify-content-center">
 
-  {{#link-to "agent.service-instance.accounts.new"}}
-    <button type="button" class="btn btn-secondary">
-      New account
-    </button>
-  {{/link-to}}
+  <div class="col col-xs-6 col-sm-2">
+    {{#link-to "agent.service-instance.accounts" class="text-decoration-none"}}
+      <div class="card">
+        <div class="card-header text-center">Accounts</div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{model.accounts.length}}</h5>
+        </div>
+      </div>
+    {{/link-to}}
+  </div>
   
-  {{#link-to "agent.service-instance.domains.new"}}
-    <button type="button" class="btn btn-secondary">
-      New domain
-    </button>
-  {{/link-to}}
-  
+  <div class="col col-xs-6 col-sm-2">
+    {{#link-to "agent.service-instance.domains" class="text-decoration-none"}}
+      <div class="card">
+        <div class="card-header text-center">Domains</div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{model.domains.length}}</h5>
+        </div>
+      </div>
+    {{/link-to}}
+  </div>
+
 </div>
-
-
-<h2>Accounts</h2>
-
-<table class="table table-compact table-bordered">
-  <thead>
-    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
-    <th>Email</th>
-    <th>Display Name</th>
-    <th>Created</th>
-  </thead>
-  <tbody>
-    {{#each model.accounts as |account|}}
-      <tr>
-        <td><Input @type="checkbox" @checked={{account._selected}}/></td>
-        <td>{{account.email}}</td>
-        <td>{{account.displayName}}</td>
-        <td>{{account.createdAt}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-
-<h2>Domains</h2>
-
-<table class="table table-compact table-bordered">
-  <thead>
-    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
-    <th>Name</th>
-    <th>Created</th>
-  </thead>
-  <tbody>
-    {{#each model.domains as |domain|}}
-      <tr>
-        <td><Input @type="checkbox" @checked={{domain._selected}}/></td>
-        <td>{{domain.name}}</td>
-        <td>{{domain.createdAt}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{outlet}}

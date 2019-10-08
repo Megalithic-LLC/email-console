@@ -45,7 +45,7 @@ export default Controller.extend({
     save(account) {
       account.save().then(() => {
         this.notify.info('Account successfully created');
-        this.transitionToRoute('agent.service-instance');
+        this.transitionToRoute('agent.service-instance.accounts');
       }).catch((reason) => {
         this.notify.error(reason.errors[0].detail);
       });

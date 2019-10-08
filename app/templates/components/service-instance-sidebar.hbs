@@ -12,8 +12,10 @@
       </p>
       <li>
         <div class="label">
-          Accounts
-          <span class="badge badge-secondary">{{serviceInstance.accounts.length}}</span>
+          {{#link-to "agent.service-instance.accounts"}}
+            Accounts
+            <span class="badge badge-secondary">{{serviceInstance.accounts.length}}</span>
+          {{/link-to}}
         </div>
         <div class="label">
           {{#link-to "agent.service-instance.domains"}}
