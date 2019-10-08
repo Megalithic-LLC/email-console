@@ -5,25 +5,17 @@
   <div class="sidebar-nav-sidebar">
   
     <ul class="list-unstyled sidebar-nav-subheading">
-      <p class="d-none d-sm-block">Agent</p>
-      <li>
+      <p class="d-none d-sm-block">
         {{#link-to "agent"}}
-          <div class="label"><small>{{agent.id}}</small></div>
+          Agent
         {{/link-to}}
-      </li>
-    </ul>
-    
-    <hr>
-    
-    <ul class="list-unstyled sidebar-nav-subheading">
-      <p class="d-none d-sm-block">Manage</p>
+      </p>
       <li>
-        <div class="label">Backups</div>
+        <div class="label">Networking</div>
+        <div class="label">Services</div>
         <div class="label">
           {{#link-to "agent.snapshot"}}Snapshots{{/link-to}}
         </div>
-        <div class="label">Networking</div>
-        <div class="label">Services</div>
       </li>
     </ul>
     
@@ -35,6 +27,18 @@
         </span>
       </li>
     </ul>
+    
+    
+    <hr>
+    
+    <ul class="list-unstyled sidebar-nav-subheading">
+      <p class="d-none d-sm-block">Cloud</p>
+      <li>
+        <div class="label">Backups</div>
+        <div class="label">Snapshots</div>
+      </li>
+    </ul>
+    
   </div>
   
   <div class="sidebar-nav-content">
