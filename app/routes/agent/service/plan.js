@@ -7,6 +7,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
     controller.set('agent', this.modelFor('agent'));
   },
   deactivate() {
-    this.modelFor('agent.snapshot').rollbackAttributes();
+    this.modelFor('agent.service.plan').rollbackAttributes();
   }
 });

@@ -13,7 +13,7 @@ export default Controller.extend({
       });
       serviceInstance.save().then(() => {
         this.notify.info('Provisioned');
-        this.transitionToRoute('agent', agent);
+        this.transitionToRoute('agent.service-instance', serviceInstance);
       }).catch((reason) => {
         this.notify.error(reason.errors[0].detail);
       });
