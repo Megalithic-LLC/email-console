@@ -12,6 +12,7 @@ export default Controller.extend({
       account.set('_selected', selected);
     });
   }),
+  
   onSelectedChanged: observer('model.accounts.@each._selected', function() {
     const numSelected = this.get('selectedAccounts').length;
     const numTotal = this.get('model.accounts.length');
@@ -21,9 +22,11 @@ export default Controller.extend({
       this.set('selectAll', true);
     }
   }),
+  
   selectedAccounts: computed('model.accounts.@each._selected', function() {
     return this.get('model.accounts').filterBy('_selected',true);
   }),
+  
   actions: {
     bulkDelete(accounts) {
       accounts.forEach((account) => {

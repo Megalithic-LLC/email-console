@@ -28,16 +28,16 @@
 <table class="table table-compact table-bordered">
   <thead>
     <th><Input @type="checkbox" @checked={{selectAll}}/></th>
-    <th>ID</th>
     <th>Email</th>
+    <th>Display Name</th>
     <th>Created</th>
   </thead>
   <tbody>
     {{#each model.accounts as |account|}}
       <tr>
         <td><Input @type="checkbox" @checked={{account._selected}}/></td>
-        <td>{{account.id}}</td>
         <td>{{account.email}}</td>
+        <td>{{account.displayName}}</td>
         <td>{{account.createdAt}}</td>
       </tr>
     {{/each}}
