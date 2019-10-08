@@ -37,7 +37,7 @@
       <tr>
         <td><Input @type="checkbox" @checked={{domain._selected}}/></td>
         <td>{{domain.name}}</td>
-        <td>{{domain.createdAt}}</td>
+        <td>{{moment-format domain.createdAt "llll"}}</td>
       </tr>
     {{/each}}
   </tbody>

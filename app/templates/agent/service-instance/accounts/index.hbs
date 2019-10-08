@@ -39,7 +39,7 @@
         <td><Input @type="checkbox" @checked={{account._selected}}/></td>
         <td>{{account.email}}</td>
         <td>{{account.displayName}}</td>
-        <td>{{account.createdAt}}</td>
+        <td>{{moment-format account.createdAt "llll"}}</td>
       </tr>
     {{/each}}
   </tbody>
