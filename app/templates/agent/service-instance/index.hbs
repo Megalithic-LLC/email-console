@@ -1,6 +1,29 @@
 <div class="row justify-content-center">
+  <div class="col-xs-12">
+    <table class="table table-compact">
+      <tbody>
+        <tr>
+          <th>Service</th>
+          <td>
+            {{model.service.displayName}}
+          </td>
+        </tr>
+        <tr>
+          <th>Plan</th>
+          <td>
+            {{#link-to "agent.service.plan" model.service model.plan}}
+              {{model.plan.displayName}}
+            {{/link-to}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+<div class="row justify-content-center">
 
-  <div class="col col-xs-6 col-sm-2">
+  <div class="col-xs-6 col-sm-2">
     {{#link-to "agent.service-instance.accounts" class="text-decoration-none"}}
       <div class="card">
         <div class="card-header text-center">Accounts</div>
@@ -11,7 +34,7 @@
     {{/link-to}}
   </div>
   
-  <div class="col col-xs-6 col-sm-2">
+  <div class="col-xs-6 col-sm-2">
     {{#link-to "agent.service-instance.domains" class="text-decoration-none"}}
       <div class="card">
         <div class="card-header text-center">Domains</div>
