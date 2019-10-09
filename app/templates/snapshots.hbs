@@ -1,0 +1,64 @@
+<MainSidebar>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        Snapshots
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="container">
+    <div class="panel">
+      <legend>Snapshots ({{model.length}})</legend>
+      
+      <div class="float-right">
+        {{#if selectedSnapshots.length}}
+          <BsDropdown as |dd|>
+            <dd.button>
+              Actions
+              <span class="badge badge-light">{{selectedSnapshots.length}}</span>
+              <span class="caret"/>
+            </dd.button>
+            <dd.menu as |menu|>
+              <menu.item>
+                <a href="#" {{action "bulkDelete" selectedSnapshots}}>
+                  <FaIcon @icon="trash"/> Delete
+                </a>
+              </menu.item>
+            </dd.menu>
+          </BsDropdown>
+        {{/if}}
+      </div>
+      
+      
+      {{#if model.length}}
+        <table class="table table-compact table-bordered">
+          <thead>
+            <th><Input @type="checkbox" @checked={{selectAll}}/></th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Created</th>
+          </thead>
+          <tbody>
+            {{#each model as |snapshot|}}
+              {{#unless snapshot.isNew}}
+                <tr>
+                  <td><Input @type="checkbox" @checked={{snapshot._selected}}/></td>
+                  <td>{{snapshot.name}}</td>
+                  <td><SnapshotStatus @snapshot={{snapshot}}/></td>
+                  <td>{{moment-format snapshot.createdAt "llll"}}</td>
+                </tr>
+              {{/unless}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <p>None.</p>
+      {{/if}}
+    </div>
+  
+  </div>
+  
+  
+  {{outlet}}
+</MainSidebar>
