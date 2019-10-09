@@ -36,6 +36,7 @@
           <thead>
             <th><Input @type="checkbox" @checked={{selectAll}}/></th>
             <th>Name</th>
+            <th>Size</th>
             <th>Status</th>
             <th>Created</th>
           </thead>
@@ -45,6 +46,7 @@
                 <tr>
                   <td><Input @type="checkbox" @checked={{snapshot._selected}}/></td>
                   <td>{{snapshot.name}}</td>
+                  <td>{{snapshot.size}}</td>
                   <td><SnapshotStatus @snapshot={{snapshot}}/></td>
                   <td>{{moment-format snapshot.createdAt "llll"}}</td>
                 </tr>

@@ -3,5 +3,10 @@
 {{else if (lt snapshot.progress 50)}}
   creating...
 {{else}}
-  <div>✓ created ({{snapshot.size}} bytes)</div>
+  <div>✓ created</div>
+  {{#if (lt snapshot.progress 100)}}
+    <div>transferring to cloud... ({{snapshot.progress}}%)</div>
+  {{else}}
+    <div>✓ backed up to cloud</div>
+  {{/if}}
 {{/if}}
