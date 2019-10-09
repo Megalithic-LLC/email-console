@@ -10,7 +10,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     });
   },
   deactivate() {
-    this.modelFor('agent.snapshot').rollbackAttributes();
+    this.modelFor('agent.snapshots').rollbackAttributes();
   },
   setupController(controller, model) {
     this._super(controller, model);

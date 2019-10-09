@@ -22,7 +22,7 @@ Router.map(function() {
     });
     this.route('service-instances');
     this.route('services');
-    this.route('snapshot');
+    this.route('snapshots');
   });
   this.route('agents', function() {
     this.route('new');

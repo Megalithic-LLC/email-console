@@ -13,7 +13,7 @@ export default Controller.extend({
         this.notify.info('Snapshot started');
         
         // Reload "new snapshot" model
-        this.transitionToRoute('agent').then(() => this.transitionToRoute('agent.snapshot'));
+        this.transitionToRoute('agent').then(() => this.transitionToRoute('agent.snapshots'));
         
       }).catch((reason) => {
         this.notify.error(reason.errors[0].detail);
