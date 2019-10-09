@@ -1,0 +1,7 @@
+{{#if (eq snapshot.progress 0)}}
+  waiting to start
+{{else if (lt snapshot.progress 50)}}
+  creating...
+{{else}}
+  <div>✓ created ({{snapshot.size}} bytes)</div>
+{{/if}}
