@@ -4,6 +4,9 @@ import { task, timeout } from 'ember-concurrency';
 export default Component.extend({
   reloadModel: task(function * () {
     let snapshot = this.get('snapshot');
+    if (!snapshot) {
+      return;
+    }
     while (true) {
       if (snapshot.get('progress') == 100) {
         break;
