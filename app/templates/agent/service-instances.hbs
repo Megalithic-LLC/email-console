@@ -14,15 +14,38 @@
   
   
   <div class="container">
+    <div class="float-right">
+      {{#if selectedServiceInstances.length}}
+        <BsDropdown as |dd|>
+          <dd.button>
+            Actions
+            <span class="badge badge-light">{{selectedServiceInstances.length}}</span>
+            <span class="caret"/>
+          </dd.button>
+          <dd.menu as |menu|>
+            <menu.item>
+              <a href="#" {{action "bulkDelete" selectedServiceInstances}}>
+                <FaIcon @icon="trash"/> De-provision
+              </a>
+            </menu.item>
+          </dd.menu>
+        </BsDropdown>
+      {{/if}}
+    </div>
+    
+  
     <h2>Service Instances ({{model.serviceInstances.length}})</h2>
+    
     <table class="table table-compact table-bordered">
       <thead>
+        <th><Input @type="checkbox" @checked={{selectAll}}/></th>
         <th>Service & Plan</th>
         <th>Created</th>
       </thead>
       <tbody>
         {{#each model.serviceInstances as |serviceInstance|}}
           <tr>
+            <td><Input @type="checkbox" @checked={{serviceInstance._selected}}/></td>          
             <td>
               {{#link-to "agent.service-instance" serviceInstance}}
                 {{serviceInstance.service.displayName}} ({{serviceInstance.plan.displayName}})
