@@ -15,7 +15,7 @@ export default Controller.extend({
   
   onSelectedChanged: observer('agent.snapshots.@each._selected', function() {
     const numSelected = this.get('selectedSnapshots.length');
-    const numTotal = this.get('agent.snapshots.length');
+    const numTotal = this.get('snapshotCount');
     if (numSelected == 0) {
       this.set('selectAll', false);
     } else if (numSelected == numTotal) {
