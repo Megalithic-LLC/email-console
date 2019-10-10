@@ -7,6 +7,7 @@ export default Model.extend({
   plan: DS.belongsTo('plan', {inverse:null}),
   accounts: DS.hasMany('account'),
   domains: DS.hasMany('domain'),
+  createdBy: DS.belongsTo('user', {inverse:null}),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date')
 });

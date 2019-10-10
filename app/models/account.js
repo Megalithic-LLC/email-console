@@ -10,6 +10,7 @@ export default Model.extend({
   first: DS.attr('string'),
   last: DS.attr('string'),
   displayName: DS.attr('string'),
+  createdBy: DS.belongsTo('user', {inverse:null}),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date')
 });

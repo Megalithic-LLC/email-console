@@ -6,5 +6,6 @@ export default Model.extend({
   name: DS.attr('string'),
   progress: DS.attr('number'),
   size: DS.attr('number'),
+  createdBy: DS.belongsTo('user', {inverse:null}),
   createdAt: DS.attr('date')
 });
