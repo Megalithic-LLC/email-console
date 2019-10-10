@@ -8,7 +8,7 @@ export default Controller.extend({
   
   onSelectAllChanged: observer('selectAll', function() {
     const selected = this.get('selectAll');
-    this.get('agent.snapshots').forEach((snapshot) => {
+    this.get('agent.snapshots').filterBy('isNew', false).forEach((snapshot) => {
       snapshot.set('_selected', selected);
     });
   }),
@@ -34,6 +34,9 @@ export default Controller.extend({
   actions: {
     bulkDelete(snapshots) {
       snapshots.forEach((snapshot) => {
+        if (snapshot.isNew) {
+          return;
+        }
         snapshot.destroyRecord().then(() => {
           this.notify.info('Snapshot deleted');
         }).catch((reason) => {
