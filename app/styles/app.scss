@@ -11,3 +11,11 @@
 body {
   color: #555;
 }
+
+.comma-separated-spans span::after {
+  content: ', ';
+}
+
+.comma-separated-spans span:last-child::after {
+  content: '';
+}

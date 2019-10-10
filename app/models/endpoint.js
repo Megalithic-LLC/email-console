@@ -3,11 +3,12 @@ const { Model } = DS;
 
 export default Model.extend({
   agent: DS.belongsTo('agent'),
-  service: DS.belongsTo('service', {inverse:null}),
-  plan: DS.belongsTo('plan', {inverse:null}),
-  accounts: DS.hasMany('account'),
-  domains: DS.hasMany('domain'),
-  endpoints: DS.hasMany('endpoint'),
+  serviceInstance: DS.belongsTo('service-instance'),
+  protocol: DS.attr('string'),
+  type: DS.attr('string'),
+  port: DS.attr('number'),
+  path: DS.attr('string'),
+  enabled: DS.attr('boolean'),
   createdBy: DS.belongsTo('user', {inverse:null}),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date')

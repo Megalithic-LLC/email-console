@@ -15,6 +15,9 @@ Router.map(function() {
       this.route('domains', function() {
         this.route('new');
       });
+      this.route('endpoints', function() {
+        this.route('new');
+      });
     }
     );
     this.route('service', {path:'/service/:service_id'}, function() {

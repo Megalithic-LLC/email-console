@@ -1,0 +1,35 @@
+<h2>Create a new endpoint</h2>
+
+<form {{action "save" on="submit"}} class="container">
+
+  <div class="form-group">
+    <label for="protocol">Protocol</label>
+    <Input @id="protocol" @value={{model.protocol}} class="form-control"/>
+    <small class="form-text text-muted">Valid values are[imap, lmtp, smtp, submission].</small>
+  </div>
+  
+  <div class="form-group">
+    <label for="type">Type</label>
+    <Input @id="type" @value={{model.type}} class="form-control" autocomplete="on" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    <small class="form-text text-muted">Valid values are[tcp, unix].</small>
+  </div>
+
+  {{#if (eq model.type "tcp")}}
+    <div class="form-group">
+      <label for="port">Port</label>
+      <Input @id="port" @value={{model.port}} class="form-control"/>
+    </div>
+  {{/if}}
+  
+  
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" {{action "save" model}} disabled={{model.isSaving}}>
+      {{#if model.isSaving}}<FaIcon @icon="spinner" @spin={{true}}/>{{/if}}
+      Save
+    </button>
+    {{#link-to "agent.service-instance"}}<button type="submit" class="btn btn-secondary">Cancel</button>{{/link-to}}
+  </div>
+
+</form>
+
+{{outlet}}

@@ -17,6 +17,11 @@
         <span class="badge badge-secondary">{{serviceInstance.domains.length}}</span>
       {{/link-to}}
     </div>
-    <div class="label">Networking</div>
+    <div class="label">
+      {{#link-to "agent.service-instance.endpoints"}}
+        Endpoints
+        <span class="badge badge-secondary">{{serviceInstance.endpoints.length}}</span>
+      {{/link-to}}
+    </div>
   </li>
 </ul>

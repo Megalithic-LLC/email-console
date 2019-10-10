@@ -45,4 +45,15 @@
     {{/link-to}}
   </div>
 
+  <div class="col-xs-6 col-sm-2">
+    {{#link-to "agent.service-instance.endpoints" class="text-decoration-none"}}
+      <div class="card">
+        <div class="card-header text-center">Endpoints</div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{model.endpoints.length}}</h5>
+        </div>
+      </div>
+    {{/link-to}}
+  </div>
+
 </div>
