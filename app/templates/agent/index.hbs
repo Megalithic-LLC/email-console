@@ -1,69 +1,47 @@
 <AgentSidebar @agent={{model}}>
+
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        Agent
-      </li>
       <li class="breadcrumb-item active" aria-current="page">
-        {{model.id}}
+        Agent
       </li>
     </ol>
   </nav>
+
+  <div class="row justify-content-center">
   
-  <div class="container">
+    <div class="col-xs-6 col-sm-2">
+      {{#link-to "agent.accounts" class="text-decoration-none"}}
+        <div class="card">
+          <div class="card-header text-center">Accounts</div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{model.accounts.length}}</h5>
+          </div>
+        </div>
+      {{/link-to}}
+    </div>
+    
+    <div class="col-xs-6 col-sm-2">
+      {{#link-to "agent.domains" class="text-decoration-none"}}
+        <div class="card">
+          <div class="card-header text-center">Domains</div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{model.domains.length}}</h5>
+          </div>
+        </div>
+      {{/link-to}}
+    </div>
   
-    {{#if model.backups.length}}
-      <div class="section">
-        <h2>Backups ({{model.backups.length}})</h2>
-        <table class="table table-compact table-bordered">
-          <tbody>
-            {{#each model.backups as |backup|}}
-              <tr>
-                <td>{{backup.id}}</td>
-                <td>{{backup.createdAt}}</td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    {{/if}}
-    
-    
-    {{#if model.snapshots.length}}
-      <div class="section">
-        <h2>Snapshots ({{model.snapshots.length}})</h2>
-        <table class="table table-compact table-bordered">
-          <tbody>
-            {{#each model.snapshots as |snapshot|}}
-              <tr>
-                <td>{{snapshot.id}}</td>
-                <td>{{snapshot.createdAt}}</td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    {{/if}}
-    
-    
-    {{#if model.serviceInstances.length}}
-      <div class="section">
-        <h2>Service Instances ({{model.serviceInstances.length}})</h2>
-        <table class="table table-compact table-bordered">
-          <tbody>
-            {{#each model.serviceInstances as |serviceInstance|}}
-              <tr>
-                <td>
-                  {{#link-to "agent.service-instance" serviceInstance}}
-                    {{serviceInstance.service.displayName}} ({{serviceInstance.plan.displayName}})
-                  {{/link-to}}
-                </td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    {{/if}}
-    
+    <div class="col-xs-6 col-sm-2">
+      {{#link-to "agent.endpoints" class="text-decoration-none"}}
+        <div class="card">
+          <div class="card-header text-center">Endpoints</div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{model.endpoints.length}}</h5>
+          </div>
+        </div>
+      {{/link-to}}
+    </div>
+  
   </div>
 </AgentSidebar>

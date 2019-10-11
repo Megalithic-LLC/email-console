@@ -3,42 +3,29 @@
   <h4>Step 1: Install the On-Prem agent</h4>
   
   <BsTab as |tab|>
-    <tab.pane @title="MSQL">
+    <tab.pane @title="APT">
       <CodeBlock>
-        $ sudo yum install (TODO: on-prem-msqld)
+        # TODO register repository
+        $ sudo apt-get install on-prem-emaild
       </CodeBlock>
     </tab.pane>
-    {{!--
-    <tab.pane @title="Email">
+    <tab.pane @title="RPM">
       <CodeBlock>
-        $ sudo yum install (TODO: on-prem-emaild)
+        # TODO register repository
+        $ sudo yum install on-prem-emaild
       </CodeBlock>
     </tab.pane>
-    --}}
   </BsTab>
 
 
   <h4>Step 2: Examine log to determine agent's node id</h4>
   <p>blah...</p>
   
-  <BsTab as |tab|>
-    <tab.pane @title="MSQL">
-      <CodeBlock>
-        $ journalctl -u on-prem-msqld
-        (timestamp) INFO On-Prem MSQL service started
-        (timestamp) INFO Node id is u275l3hblmvu2345jj89
-      </CodeBlock>
-    </tab.pane>
-    {{!--
-    <tab.pane @title="Email">
-      <CodeBlock>
-        $ journalctl -u on-prem-emaild
-        (timestamp) INFO On-Prem Email service started
-        (timestamp) INFO Node id is u275l3hblmvu2345jj89
-      </CodeBlock>
-    </tab.pane>
-    --}}
-  </BsTab>
+  <CodeBlock>
+    $ journalctl -u on-prem-emaild
+    (timestamp) INFO On-Prem Email service started
+    (timestamp) INFO Node id is u275l3hblmvu2345jj89
+  </CodeBlock>
 
   
   <h4>Step 3: Claim the agent</h4>

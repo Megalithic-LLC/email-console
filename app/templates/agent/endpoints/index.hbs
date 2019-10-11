@@ -1,0 +1,52 @@
+<div class="float-right">
+  {{#if selectedEndpoints.length}}
+    <BsDropdown as |dd|>
+      <dd.button>
+        Actions
+        <span class="badge badge-light">{{selectedEndpoints.length}}</span>
+        <span class="caret"/>
+      </dd.button>
+      <dd.menu as |menu|>
+        <menu.item>
+          <a href="#" {{action "bulkDelete" selectedEndpoints}}>
+            <FaIcon @icon="trash"/> Delete
+          </a>
+        </menu.item>
+      </dd.menu>
+    </BsDropdown>
+  {{/if}}
+
+  {{#link-to "agent.endpoints.new"}}
+    <button type="button" class="btn btn-secondary">
+      New endpoint
+    </button>
+  {{/link-to}}
+</div>
+
+
+<h2>Endpoints</h2>
+
+<table class="table table-compact table-bordered">
+  <thead>
+    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
+    <th>Protocol</th>
+    <th>Type</th>
+    <th>Configuration</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    {{#each model.endpoints as |endpoint|}}
+      <tr>
+        <td><Input @type="checkbox" @checked={{endpoint._selected}}/></td>
+        <td>{{endpoint.protocol}}</td>
+        <td>{{endpoint.type}}</td>
+        <td class="comma-separated-spans">
+          {{#if (eq endpoint.type "tcp")}}
+            <span>port: {{endpoint.port}}</span>
+          {{/if}}
+        </td>
+        <td>{{moment-format endpoint.createdAt "llll"}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

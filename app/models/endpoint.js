@@ -3,7 +3,6 @@ const { Model } = DS;
 
 export default Model.extend({
   agent: DS.belongsTo('agent'),
-  serviceInstance: DS.belongsTo('service-instance'),
   protocol: DS.attr('string'),
   type: DS.attr('string'),
   port: DS.attr('number'),
