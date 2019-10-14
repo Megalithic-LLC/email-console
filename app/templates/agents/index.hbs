@@ -1,19 +1,18 @@
-<div class="container">
-  <h2>Agents</h2>
-  <table class="table">
-    <thead>
-      <th>ID</th>
-      <th>Created</th>
-    </thead>
-    <tbody>
-      {{#each model as |agent|}}
-        <tr>
-          {{#link-to "agent" agent}}{{agent.id}}{{/link-to}}
-          <td>{{moment agent.createdAt}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+{{#link-to "agents.new"}}
+  <button class="btn btn-secondary btn-sm float-right">Register new agent</button>
+{{/link-to}}
 
-{{outlet}}
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    {{#each model as |agent|}}
+      <tr>
+        {{#link-to "agent" agent}}{{agent.id}}{{/link-to}}
+        <td>{{moment agent.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

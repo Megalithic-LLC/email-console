@@ -1,48 +1,43 @@
-<div class="container">
+<h4>Step 1: Install the agent</h4>
 
-  <h4>Step 1: Install the agent</h4>
+<BsTab as |tab|>
+  <tab.pane @title="APT">
+    <CodeBlock>
+      # TODO register repository
+      $ sudo apt-get install on-prem-megalithic-emaild
+    </CodeBlock>
+  </tab.pane>
+  <tab.pane @title="RPM">
+    <CodeBlock>
+      # TODO register repository
+      $ sudo yum install on-prem-megalithic-emaild
+    </CodeBlock>
+  </tab.pane>
+</BsTab>
+
+
+<h4>Step 2: Examine log to determine agent's ID</h4>
+
+<CodeBlock>
+  $ journalctl -u on-prem-megalithic-emaild
+  (timestamp) INFO On-Prem Email Server started
+  (timestamp) INFO ======================================
+  (timestamp) INFO == Agent ID is u275l3hblmvu2345jj89 ==
+  (timestamp) INFO ======================================
+</CodeBlock>
+
+
+<h4>Step 3: Claim the agent</h4>
+<p>
+  Enter your agent's ID into this form to claim it.
+</p>
+
+
+<form {{action "claimAgent" model on="submit"}}>
+  <div class="form-group">
+    <label for="agentID">Agent ID</label>
+    {{input id="agentID" type="text" class="form-control" value=model.id}}
+  </div>
   
-  <BsTab as |tab|>
-    <tab.pane @title="APT">
-      <CodeBlock>
-        # TODO register repository
-        $ sudo apt-get install on-prem-megalithic-emaild
-      </CodeBlock>
-    </tab.pane>
-    <tab.pane @title="RPM">
-      <CodeBlock>
-        # TODO register repository
-        $ sudo yum install on-prem-megalithic-emaild
-      </CodeBlock>
-    </tab.pane>
-  </BsTab>
-
-
-  <h4>Step 2: Examine log to determine agent's ID</h4>
-  
-  <CodeBlock>
-    $ journalctl -u on-prem-megalithic-emaild
-    (timestamp) INFO On-Prem Email Server started
-    (timestamp) INFO ======================================
-    (timestamp) INFO == Agent ID is u275l3hblmvu2345jj89 ==
-    (timestamp) INFO ======================================
-  </CodeBlock>
-
-  
-  <h4>Step 3: Claim the agent</h4>
-  <p>
-    Enter your agent's ID into this form to claim it.
-  </p>
-
-  
-  <form {{action "claimAgent" model on="submit"}}>
-    <div class="form-group">
-      <label for="agentID">Agent ID</label>
-      {{input id="agentID" type="text" class="form-control" value=model.id}}
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-{{outlet}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
