@@ -1,43 +1,44 @@
 <div class="container">
 
-  <h4>Step 1: Install the On-Prem agent</h4>
+  <h4>Step 1: Install the agent</h4>
   
   <BsTab as |tab|>
     <tab.pane @title="APT">
       <CodeBlock>
         # TODO register repository
-        $ sudo apt-get install on-prem-emaild
+        $ sudo apt-get install on-prem-megalithic-emaild
       </CodeBlock>
     </tab.pane>
     <tab.pane @title="RPM">
       <CodeBlock>
         # TODO register repository
-        $ sudo yum install on-prem-emaild
+        $ sudo yum install on-prem-megalithic-emaild
       </CodeBlock>
     </tab.pane>
   </BsTab>
 
 
-  <h4>Step 2: Examine log to determine agent's node id</h4>
-  <p>blah...</p>
+  <h4>Step 2: Examine log to determine agent's ID</h4>
   
   <CodeBlock>
-    $ journalctl -u on-prem-emaild
-    (timestamp) INFO On-Prem Email service started
-    (timestamp) INFO Node id is u275l3hblmvu2345jj89
+    $ journalctl -u on-prem-megalithic-emaild
+    (timestamp) INFO On-Prem Email Server started
+    (timestamp) INFO ======================================
+    (timestamp) INFO == Agent ID is u275l3hblmvu2345jj89 ==
+    (timestamp) INFO ======================================
   </CodeBlock>
 
   
   <h4>Step 3: Claim the agent</h4>
   <p>
-    Enter your agent's node id into this form to claim it.
+    Enter your agent's ID into this form to claim it.
   </p>
 
   
   <form {{action "claimAgent" model on="submit"}}>
     <div class="form-group">
-      <label for="nodeID">Node ID</label>
-      {{input id="nodeID" type="text" class="form-control" placeholder="Enter node ID" value=model.id}}
+      <label for="agentID">Agent ID</label>
+      {{input id="agentID" type="text" class="form-control" value=model.id}}
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
