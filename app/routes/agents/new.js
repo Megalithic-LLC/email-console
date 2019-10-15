@@ -3,7 +3,15 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.store.createRecord('agent', {});
+    let agent = this.store.createRecord('agent', {});
+    this.store.findRecord('plan', 'bkitl52ck4q0017oe4qg').then((freePlan) => {
+      agent.set('plan', freePlan);
+    });
+    return agent;
+  },
+  setupController(controller, model) {
+    controller.set('model', model);
+    controller.set('allPlans', this.store.findAll('plan'));
   },
   deactivate() {
     this.modelFor('agents.new').rollbackAttributes();

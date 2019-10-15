@@ -34,9 +34,21 @@
 
 
 <form {{action "claimAgent" model on="submit"}}>
+
   <div class="form-group">
     <label for="agentID">Agent ID</label>
     {{input id="agentID" type="text" class="form-control" value=model.id}}
+  </div>
+  
+  <div class="form-group">
+    <label for="planID">Service Plan</label>
+    <BsTab as |tab|>
+      {{#each allPlans as |plan|}}
+        <tab.pane @title="{{plan.displayName}}">
+          {{plan.description}}
+        </tab.pane>
+      {{/each}}
+    </BsTab>
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
