@@ -1,0 +1,11 @@
+<h4>Create a new API key</h4>
+
+<form {{action "save" model on="submit"}}>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <Input @id="description" class="form-control" @value={{model.description}}/>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

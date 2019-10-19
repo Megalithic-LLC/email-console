@@ -1,0 +1,43 @@
+{{#link-to "api-keys.new"}}
+  <button class="btn btn-secondary float-right">New API Key</button>
+{{/link-to}}
+
+
+<div class="float-right">
+  {{#if selectedApiKeys.length}}
+    <BsDropdown as |dd|>
+      <dd.button>
+        Actions
+        <span class="badge badge-light">{{selectedApiKeys.length}}</span>
+        <span class="caret"/>
+      </dd.button>
+      <dd.menu as |menu|>
+        <menu.item>
+          <a href="#" {{action "bulkDelete" selectedApiKeys}}>
+            <FaIcon @icon="trash"/> Delete
+          </a>
+        </menu.item>
+      </dd.menu>
+    </BsDropdown>
+  {{/if}}
+</div>
+
+
+<table class="table">
+  <thead>
+    <th><Input @type="checkbox" @checked={{selectAll}}/></th>
+    <th>Key</th>
+    <th>Description</th>
+    <th>Created</th>
+  </thead>
+  <tbody>
+    {{#each model as |apiKey|}}
+      <tr>
+        <td><Input @type="checkbox" @checked={{apiKey._selected}}/></td>
+        <td>{{apiKey.key}}</td>
+        <td>{{apiKey.description}}</td>
+        <td>{{moment apiKey.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
